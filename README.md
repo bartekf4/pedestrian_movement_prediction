@@ -1,5 +1,5 @@
-# pedestrian_movement_prediction
-Pedestrian movement prediction using Cellular Automata
+# Pedestrian movement prediction using Cellular Automata
+
 Detection and analysis of pedestrian movement is of increasing interest in the field of image processing. 
 Predicting the trajectory of their movement is a task with many real-world applications, such as autonomous driving systems and robot trajectory planning, among others. 
 
