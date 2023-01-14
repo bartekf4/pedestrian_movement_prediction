@@ -1,5 +1,5 @@
-from space import Space
 from config import *
+from space import Space
 
 
 class PersonalSpace(Space):
@@ -7,5 +7,3 @@ class PersonalSpace(Space):
         super()
         super().__init__(x, y)
         self.radius = PERSONAL_SPACE_RADIUS
-
-

@@ -19,7 +19,8 @@ class Pedestrian:
 
     def __randomColor(self) -> tuple:
         return tuple(
-            (int(np.random.choice(range(150,256))), int(np.random.choice(range(150,256))), int(np.random.choice(range(150,256)))))
+            (int(np.random.choice(range(150, 256))), int(np.random.choice(range(150, 256))),
+             int(np.random.choice(range(150, 256)))))
 
     @property
     def position(self):

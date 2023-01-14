@@ -27,8 +27,8 @@ class Velocities(metaclass=SingletonMeta):
 
     def __init__(self):
 
-        self.velocities = [] # id: [ [x, y], velocity]
-        self.positions = []  # id: [x, y]
+        self.velocities = []
+        self.positions = []
 
     def add(self, positions):
         self.positions.append(positions)
@@ -41,14 +41,10 @@ class Velocities(metaclass=SingletonMeta):
         if len(self.velocities) == 0:
             return [0, 0]
 
-        n_last = self.velocities[-min(len(self.velocities)-1, ITER_PEDESTRIAN_VELOCITY):]
+        n_last = self.velocities[-min(len(self.velocities) - 1, ITER_PEDESTRIAN_VELOCITY):]
 
         x = np.mean([v[pedestrian_id][0][0] for v in n_last if pedestrian_id in v])
         y = np.mean([v[pedestrian_id][0][1] for v in n_last if pedestrian_id in v])
-        #
-        # means = np.mean(
-        #     self.velocities[-min(len(self.velocities[pedestrian_id])-1, ITER_PEDESTRIAN_VELOCITY):][pedestrian_id][0],
-        #     axis=0)
         return [round(x), round(y)]
 
     def calculate_velocities(self):

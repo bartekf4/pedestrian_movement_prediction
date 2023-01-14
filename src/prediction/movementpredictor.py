@@ -1,7 +1,3 @@
-from multiprocessing import Process
-
-from numpy.core._exceptions import _ArrayMemoryError
-
 from board import Board
 from dijkstra import shortest_path
 from pedestrian import Pedestrian
@@ -32,7 +28,6 @@ class MovementPredictor:
         self.calculate_paths()
         self.visualizer.visualize(self.board, frame)
 
-
     def calculate_paths(self):
         for pedestrian in self.list_of_pedestrians:
             if pedestrian.destination is not None:
@@ -41,8 +36,6 @@ class MovementPredictor:
                 except:
                     print("Cannot allocate memory for the array.")
                     pedestrian.path = []
-
-
 
     def dict_to_pedestrian_list(self, positions: dict):
         list_of_pedestrians = []

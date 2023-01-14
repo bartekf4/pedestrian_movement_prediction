@@ -98,7 +98,6 @@ def adjacency_matrix_from_image(image, start):
                 else:
                     adj_matrix[current_index][current_index + 1] = 1
 
-
             if i > 0 and j < cols - 1:
                 if isinstance(image[i - 1][j + 1], PersonalSpace):
                     if image[i - 1][j + 1].position == start:
@@ -160,7 +159,6 @@ def adjacency_matrix_from_image(image, start):
 
 def shortest_path(start_coord, end_coord, initial_board):
     # get the number of rows and columns in the image
-
     cut_board, mins = get_neighborhood(start_coord, end_coord, initial_board)
     cols = cut_board.shape[1]
 

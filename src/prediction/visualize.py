@@ -57,8 +57,6 @@ class Visualize:
         else:
             self.out_matrix = np.zeros((self.height, self.width, 3))
 
-        # self.draw_grid((540, 960), (50, 50, 50))
-
         for x in range(board.x):
             for y in range(board.y):
                 if isinstance(board.grid[x, y], Pedestrian):
@@ -66,18 +64,9 @@ class Visualize:
                     self.addPedestrianToFrame(pedestrian)
                     self.addSpaceToFrame(pedestrian)
                     self.addPath(pedestrian)
-                    # if isinstance(board.grid[x, y], Space):
-                    #     self.addSpaceToFrame(board.grid[x, y])
         self.stream.write(self.out_matrix)
 
     def addSpaceToFrame(self, pedestrian: Pedestrian):
-        # if isinstance(space, PersonalSpace):
-        #     self.out_matrix = cv2.circle(self.out_matrix, (space.x, space.y), PERSONAL_SPACE_RADIUS,
-        #                                  PERSONAL_SPACE_COLOR, -1)
-        # elif isinstance(space, PrivateSpace):
-        #     self.out_matrix = cv2.circle(self.out_matrix, (space.x, space.y), PRIVATE_SPACE_RADIUS,
-        #                                  PRIVATE_SPACE_COLOR, -1)
-
         cv2.circle(self.out_matrix, (pedestrian.x, pedestrian.y), PERSONAL_SPACE_RADIUS,
                    tuple([int(c * .6) for c in pedestrian.color]), 2)
         cv2.circle(self.out_matrix, (pedestrian.x, pedestrian.y), PRIVATE_SPACE_RADIUS,
@@ -95,10 +84,6 @@ class Visualize:
         if pedestrian.destination is not None:
             cv2.circle(self.out_matrix, (pedestrian.destination[0], pedestrian.destination[1]), 0,
                        pedestrian.color)
-
-        # cv2.line(self.out_matrix, (pedestrian.x, pedestrian.y),
-        #          (pedestrian.x + pedestrian.velocity[0], pedestrian.y + pedestrian.velocity[1]),
-        #          (0, 255, 0), 1)
 
     def addPath(self, pedestrian: Pedestrian):
         if pedestrian.path is None:
