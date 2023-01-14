@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:12373f886031690e3a2fa80eb9cafe9e0cf1520aad351bf7827e67bf139a0631
-size 188
+import numpy as np
+
+
+class Pedestrian:
+    def __init__(self, id, x, y, velocity):
+        self.destination = None
+        self.path = None
+        self.id = id
+        self.x = x
+        self.y = y
+        self.velocity = velocity
+        self.color = self.__randomColor()
+
+    def update_position(self, x, y, velocity):
+        self.x = x
+        self.y = y
+        self.velocity = velocity
+        self.destination = self.x + (5 * self.velocity[0]), self.y + (5 * self.velocity[1])
+
+    def __randomColor(self) -> tuple:
+        return tuple(
+            (int(np.random.choice(range(150,256))), int(np.random.choice(range(150,256))), int(np.random.choice(range(150,256)))))
+
+    @property
+    def position(self):
+        return self.x, self.y

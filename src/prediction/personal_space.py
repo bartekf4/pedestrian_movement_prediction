@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8ebc808d113c0072666f921c7136d22264fcf8b6d132c8d3838839e6b5f68896
-size 197
+from space import Space
+from config import *
+
+
+class PersonalSpace(Space):
+    def __init__(self, x, y):
+        super()
+        super().__init__(x, y)
+        self.radius = PERSONAL_SPACE_RADIUS
+
+
